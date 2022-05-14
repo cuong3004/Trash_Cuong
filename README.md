@@ -30,6 +30,17 @@ pip3 install imutils
 echo 'sudo pigpiod' >> ~/.bashrc
 source ~/.bashrc
 
+cd 
+git clone https://github.com/nRF24/RF24.git
+cd RF24/
+./configure 
+sudo make install
+cd pyRF24/
+sudo apt-get install python3-dev libboost-python-dev 
+sudo apt-get install python3-setuptools 
+sudo python3 setup.py build
+sudo python3 setup.py install
+
 cd ~/Desktop
 git clone https://github.com/cuong3004/Trash_Cuong
 
