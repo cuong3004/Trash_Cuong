@@ -76,9 +76,6 @@ class ArmController:
 
             if i == 1:
                 time.sleep(0.5)
-                
-            print("SERVO2", anglepredict2Pulse(radi2angle(alpha+theta)) - 1.3*i**2-27)
-            print("SERVO3", anglepredict2Pulse2(radi2angle(belta)))
 
             self._setGpio(20, anglepredict2Pulse(radi2angle(alpha+theta)) - 1.3*i**2-27, step=5)
             self._setGpio(6, anglepredict2Pulse2(radi2angle(belta))-25, step=5)
@@ -96,24 +93,17 @@ class ArmController:
 
             theta = math.atan2(i,L0)
 
-            print(anglepredict2Pulse(radi2angle(alpha+theta))-i*12)
-
             self._setGpio(20, anglepredict2Pulse(radi2angle(alpha+theta)) - 1.3*i**2-27, step=5)
             self._setGpio(6, anglepredict2Pulse2(radi2angle(belta)), step=5)
 
             if i == 1:
                 time.sleep(1)
                 
-        
         rf24.write(writeData_open)
         time.sleep(0.5)
         
         
-        
-    
     def drop(self):
-        
-        
         
         self._setGpio(21, pulseServo1)
         time.sleep(1)
@@ -152,9 +142,7 @@ class ArmController:
 
             theta = math.atan2(i,L0)
 
-            #print(anglepredict2Pulse(radi2angle(alpha+theta))-i*12)
-            print("radi2angle(belta)", anglepredict2Pulse2(radi2angle(belta)))
-            
+
             if trashID == 1:
                 self._setGpio(20, anglepredict2Pulse(radi2angle(alpha+theta)) - 1.3*i**2-27 + 3*(15-i)**2, step=5)
                 self._setGpio(6, anglepredict2Pulse2(radi2angle(belta))+(15-i)**2, step=5)
@@ -185,16 +173,7 @@ class ArmController:
         self.servoPos[self.SERVO2] = 1300
         self.servoPos[self.SERVO3] = 1850
         self.servoPos[self.SERVO4] = 1800
-        """
-        self._setGpio(self.SERVO1, 1500)
-        time.sleep(1)
-        self._setGpio(self.SERVO2, 1300)
-        time.sleep(1)
-        self._setGpio(self.SERVO3, 1850)
-        time.sleep(1)
-        self._setGpio(self.SERVO4, 1500)
-        time.sleep(1)
-        """
+
         self.pi.set_servo_pulsewidth(self.SERVO1, 2300)
         time.sleep(1)
         self.pi.set_servo_pulsewidth(self.SERVO2, 1300)
@@ -202,13 +181,6 @@ class ArmController:
         self.pi.set_servo_pulsewidth(self.SERVO3, 1850)
         time.sleep(1)
         self.pi.set_servo_pulsewidth(self.SERVO4, 1800)
-        
-
-        print(self.servoPos)
-    
-    
-        
-        
     
     def _setGpio(self, pin, pulse_width, smooth = True, step = 10, release = True):
         if pulse_width < 500 or pulse_width > 2500:

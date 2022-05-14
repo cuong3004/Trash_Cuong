@@ -76,23 +76,6 @@ if __name__ == '__main__':
         frameCutPad = resize_with_padding(frameCut, (80, 80))
         # print(frameCut.shape)
         cv2.rectangle(frameCut, (0,0), (frameCut.T.shape[-2:]), (10, 0, 0), 2)
-        # frameCut = frame
-
-        # frameCut = Image.fromarray(frameCut)
-        # frameCut = resize_with_padding(frameCut, (150, 150))
-        # frameCut = np.asarray(frameCut)
-
-        # widthPos = cv2.getTrackbarPos('sliderWidth',windowName)
-        # heightPos = cv2.getTrackbarPos('sliderHeight',windowName)
-
-        # frame = cv2.circle(frame, (widthPos,heightPos), radius=2, color=(0, 0, 255), thickness=-1)
-        
-        
-        # translated = imutils.translate(frameCut, 25, -75)
-
-        # cv2.rectangle(translated, (0,0), (50, 20), (10, 0, 0), 5)
-        
-        # frameResize = cv2.resize(frameCut, (320,320))
 
         
         frameCutPad = cv2.cvtColor(frameCutPad, cv2.COLOR_RGB2BGR)

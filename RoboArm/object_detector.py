@@ -2,11 +2,8 @@ import numpy as np
 
 import cv2
 import tflite_runtime.interpreter as tflite
-#import tensorflow.lite as tflite
-#from tensorflow.image import non_max_suppression
 import time
-#import torch
-#import torchvision
+
 
 class NMS:
     def __init__(self):
@@ -68,9 +65,3 @@ if __name__ == "__main__":
     nms = ObjectDetect()
     
     print(nms.input_details)
-    #img = np.asarray(Image.open("image.jpg"))
-    
-    #model = ObjectDetect()
-    
-    #output = model.detect(img)
-    #print(output)
